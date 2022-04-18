@@ -29,7 +29,7 @@ class Item
 
   def can_be_archived?()
     current_year = Time.new.year
-    publish_year = publish_date.year
+    publish_year = @publish_date.year
     diff = current_year - publish_year
     diff > 10
   end
