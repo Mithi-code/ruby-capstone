@@ -13,9 +13,3 @@ class Game < Item
     super && (diff > 2)
   end
 end
-
-game = Game.new(
-  multiplayer: true,
-  last_played_at: DateTime.parse('2019-12-01'),
-  published_date:DateTime.parse('2000-12-01'))
-puts game.can_be_archived?
