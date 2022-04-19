@@ -4,7 +4,7 @@ class MusicAlbum < Item
   attr_accessor :on_spotify, :name, :publish_date
   attr_reader :items
 
-  def initialize(id: rand(1000), publish_date:, on_spotify:, name:)
+  def initialize(publish_date:, on_spotify:, name:, id: rand(1000))
     super(id, publish_date)
     @id = id
     @on_spotify = on_spotify
