@@ -1,4 +1,4 @@
-require_relative './classes/app.rb'
+require_relative './classes/app'
 def choose
   puts
   puts %(Welcome to the catalog menu
