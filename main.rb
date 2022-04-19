@@ -1,3 +1,4 @@
+require_relative './classes/app.rb'
 def choose
   puts
   puts %(Welcome to the catalog menu
@@ -22,32 +23,33 @@ Please choose an option by entering a number:
 end
 
 # rubocop:disable Metrics/MethodLength
-def case_statement(choice)
+def case_statement(choice, app)
   case choice
   when '1'
-    puts '1'
+    app.list_books
   when '2'
-    puts '2'
+    app.list_music_albums
   when '3'
-    puts '3'
+    app.list_games
   when '4'
-    puts '4'
+    app.list_movies
   when '5'
-    puts '5'
+    app.list_genres
   when '6'
-    puts '6'
+    app.list_authors
   when '7'
-    puts '7'
+    app.list_labels
   when '8'
-    puts '8'
+    app.list_sources
   when '9'
-    puts '9'
+    app.add_book
   when '10'
-    puts '10'
+    app.movie
   when '11'
-    puts '11'
+    app.add_music_album
+
   when '12'
-    puts '12'
+    app.add_game
   end
 end
 
