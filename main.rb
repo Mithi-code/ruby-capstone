@@ -21,59 +21,43 @@ Please choose an option by entering a number:
   gets.chomp.downcase
 end
 
+# rubocop:disable Metrics/MethodLength
+def case_statement(choice)
+  case choice
+  when '1'
+    puts '1'
+  when '2'
+    puts '2'
+  when '3'
+    puts '3'
+  when '4'
+    puts '4'
+  when '5'
+    puts '5'
+  when '6'
+    puts '6'
+  when '7'
+    puts '7'
+  when '8'
+    puts '8'
+  when '9'
+    puts '9'
+  when '10'
+    puts '10'
+  when '11'
+    puts '11'
+  when '12'
+    puts '12'
+  end
+end
+
+# rubocop:enable Metrics/MethodLength
 def main
   choice = nil
   until choice == '13'
     choice = choose
     puts "You choose #{choice}"
-    case @choice
-    when '1'
-
-      puts choice
-    when '2'
-      @app.list_people
-      puts
-    when '3'
-
-      puts choice
-      puts
-    when '4'
-
-      puts choice
-      puts
-    when '5'
-
-      puts choice
-      puts
-    when '6'
-
-      puts choice
-      puts
-    when '7'
-
-      puts choice
-      puts
-    when '8'
-
-      puts choice
-      puts
-    when '9'
-
-      puts choice
-      puts
-    when '10'
-
-      puts choice
-      puts
-    when '11'
-
-      puts choice
-      puts
-    when '12'
-
-      puts choice
-      puts
-    end
+    case_statement choice
   end
 end
 
