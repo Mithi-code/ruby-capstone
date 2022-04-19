@@ -1,4 +1,8 @@
+require_relative './app_helpers'
+require_relative 'game'
+require 'date'
 class App
+  include AppHelpers
   def initialize
     @books = []
     @games = []
@@ -46,5 +50,20 @@ class App
       last_played_at: last_played_at
     )
     @games << game
+  end
+
+  private
+
+  def add_author
+    puts 'Add the Author'
+    print 'First name: '
+    first_name = gets.chomp
+    print 'Last name: '
+    last_name = gets.chomp
+    author = Author.new(
+      first_name: first_name,
+      last_name: last_name
+    )
+    @authors << author
   end
 end
