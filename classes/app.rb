@@ -2,6 +2,8 @@ require_relative './app_helpers'
 require_relative 'game'
 require_relative 'genre'
 require_relative 'source'
+require_relative 'label'
+require_relative 'author'
 require 'date'
 class App
   include AppHelpers
@@ -19,11 +21,11 @@ class App
   def list_books; end
 
   def list_games
-    @games.each_with_index { |game, i| puts "#{i + 1}. #{game}" }
+    list_items @games
   end
 
   def list_authors
-    @authors.each_with_index { |author, i| puts "#{i + 1}. #{author}" }
+    @authors.each_with_index { |author, i| puts "#{i + 1}. #{author.first_name} #{author.last_name}" }
   end
 
   def list_music_albums; end
@@ -51,35 +53,64 @@ class App
       published_date: published_date,
       last_played_at: last_played_at
     )
+    add_association game
     @games << game
   end
 
   private
 
-  def add_source
+  def list_items(list)
+    list.each_with_index do |item, i|
+      puts %(#{i + 1}. #{item.label.title}
+        Source: #{item.source.name}
+        Author: #{item.author.first_name} #{item.author.last_name}
+        Genre: #{item.genre.name}
+      )
+    end
+  end
+
+  def add_association(item)
+    add_associate(label, @labels, item) { |label| item.add_label label }
+    add_associate(author, @authors, item) { |author| item.add_author author }
+    add_associate(source, @sources, item) { |source| item.add_source source }
+    add_associate(genre, @genres, item) { |genre| item.add_genre genre }
+  end
+
+  def add_associate(associate, list, item)
+    associate.add_item item
+    yield associate
+    list << associate
+  end
+
+  def label
+    puts 'Lets add the Label'
+    print 'title: '
+    title = gets.chomp
+    print 'color: '
+    color = gets.chomp
+    Label.new(title: title, color: color)
+  end
+
+  def source
     puts 'Lets add the Source'
     print 'Source name: '
     name = gets.chomp
-    Source.new name
+    Source.new(name: name)
   end
 
-  def add_genre
+  def genre
     puts 'Lets add the Genre'
     print 'Genre name: '
     name = gets.chomp
-    Genre.new name
+    Genre.new(name: name)
   end
 
-  def add_author
+  def author
     puts "Let's add the Author"
     print 'First name: '
     first_name = gets.chomp
     print 'Last name: '
     last_name = gets.chomp
-    author = Author.new(
-      first_name: first_name,
-      last_name: last_name
-    )
-    @authors << author
+    Author.new(first_name: first_name, last_name: last_name)
   end
 end
