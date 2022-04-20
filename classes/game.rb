@@ -28,8 +28,8 @@ class Game < Item
   def self.from_json(json)
     game = Game.new(
       multiplayer: json['multiplayer'],
-      last_played_at: json['last_played_at'],
-      pubished_date: json['publish_date'],
+      last_played_at: DateTime.parse(json['last_played_at']),
+      pubished_date: DateTime.parse( json['publish_date']),
       id: json['id']
     )
     game.add_author Author.from_json(json['author'])
