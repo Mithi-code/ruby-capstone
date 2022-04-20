@@ -62,6 +62,7 @@ def main
     puts "You choose #{choice}"
     case_statement(choice, app)
   end
+  app.preserve_data
 end
 
 main

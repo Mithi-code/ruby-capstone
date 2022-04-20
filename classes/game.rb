@@ -17,10 +17,10 @@ class Game < Item
         last_played_at: @last_played_at,
         publish_date: @publish_date,
         archived: @archived,
-        genre: @genre,
-        source: @source,
-        author: @author,
-        label: @label
+        genre: @genre.shallow_copy,
+        source: @source.shallow_copy,
+        author: @author.shallow_copy,
+        label: @label.shallow_copy
       }
     )
   end
@@ -29,7 +29,7 @@ class Game < Item
     game = Game.new(
       multiplayer: json['multiplayer'],
       last_played_at: DateTime.parse(json['last_played_at']),
-      pubished_date: DateTime.parse( json['publish_date']),
+      published_date: DateTime.parse(json['publish_date']),
       id: json['id']
     )
     game.add_author Author.from_json(json['author'])

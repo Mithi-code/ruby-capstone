@@ -13,6 +13,17 @@ class App
     @genres = []
     @labels = []
     @sources = []
+    load_data
+  end
+
+  def load_data
+    load_list(@games, 'games', Game)
+    load_list(@authors, 'authors', Author)
+  end
+
+  def preserve_data
+    preserve_list(@games, 'games')
+    preserve_list(@authors, 'authors')
   end
 
   def list_books; end

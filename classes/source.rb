@@ -1,6 +1,9 @@
 require 'json'
+require_relative './associate'
 class Source
   attr_accessor :name
+
+  include Associate
 
   def initialize(name:, id: rand(1000))
     @id = id
@@ -12,14 +15,17 @@ class Source
     JSON.generate(
       {
         name: @name,
-        id: @id
+        id: @id,
+        items: @items
 
       }
     )
   end
 
   def self.from_json(json)
-    Source.new(json['name'], json['id'])
+    item = Source.new(name: json['name'], id: json['id'])
+    item.add_all_items json['items']
+    item
   end
 
   def add_item(item)

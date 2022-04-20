@@ -1,10 +1,12 @@
 require_relative '../item'
 require 'json'
+require_relative './associate'
 
 class Genre
   attr_accessor :name
   attr_reader :id, :items
 
+  include Associate
   def initialize(name:, id: rand(1000))
     @name = name
     @id = id
@@ -15,13 +17,16 @@ class Genre
     JSON.generate(
       {
         name: @name,
-        id: @id
+        id: @id,
+        items: @items
       }
     )
   end
 
   def self.from_json(json)
-    Source.new(json['name'], json['id'])
+    item = Genre.new(name: json['name'], id: json['id'])
+    item.add_all_items json['items']
+    item
   end
 
   def add_item(item)

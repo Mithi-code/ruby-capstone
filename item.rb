@@ -3,7 +3,7 @@ require 'json'
 
 class Item
   attr_accessor :genre, :source, :author, :label
-  attr_reader :archived
+  attr_reader :archived, :id
 
   def initialize(id, publish_date, archived: false)
     @id = id
