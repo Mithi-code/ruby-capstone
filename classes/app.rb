@@ -22,7 +22,10 @@ class App
   end
 
   def list_authors
-    @authors.each_with_index { |author, i| puts "#{i + 1}. #{author.first_name} #{author.last_name}" }
+    @authors.each_with_index do |author, i|
+      print "#{i + 1}. #{author.first_name} #{author.last_name}, "
+      author.items.each_with_index { |item, _i| puts "authored #{item.label.title}" }
+    end
   end
 
   def list_music_albums; end
