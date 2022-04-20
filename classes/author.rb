@@ -27,7 +27,7 @@ class Author
   def self.from_json(json)
     item = Author.new(first_name: json['first_name'],
                       last_name: json['last_name'], id: json['id'])
-   
+
     item.add_all_items(json['items'])
     item
   end

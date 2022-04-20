@@ -39,7 +39,6 @@ class App
   def list_authors
     @authors.each_with_index do |author, i|
       puts "#{i + 1}. #{author.first_name} #{author.last_name}"
-      
     end
   end
 

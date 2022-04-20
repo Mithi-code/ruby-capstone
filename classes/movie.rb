@@ -26,7 +26,7 @@ class Movie < Item
   def self.from_json(json)
     movie = Movie.new(
       silent: json['silent'],
-      publish_date: DateTime.parse( json['publish_date']),
+      publish_date: DateTime.parse(json['publish_date']),
       id: json['id']
     )
     movie.add_author Author.from_json(json['author'])

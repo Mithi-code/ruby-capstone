@@ -1,8 +1,10 @@
 module Associate
   def add_all_items(list)
-    
-    list.each { |item| add_item(
-      Item.new(item['id'],item["publish_date"])) }
+    list.each do |item|
+      add_item(
+        Item.new(item['id'], item['publish_date'])
+      )
+    end
   end
 
   def clear_items
