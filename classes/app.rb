@@ -32,7 +32,9 @@ class App
     list_items @music_album
   end
 
-  def list_movies; end
+  def list_movies
+    list_items @movies
+  end
 
   def list_genres
     @genres.each_with_index do |genre, i|
@@ -42,11 +44,21 @@ class App
 
   def list_labels; end
 
-  def list_sources; end
+  def list_sources
+    @sources.each_with_index do |source, i|
+      print "#{i + 1}: #{source.name}. "
+    end
+  end
 
   def add_book; end
 
-  def add_movie; end
+  def add_movie
+    is_silent = yes_or_no 'Is it a silent movie'
+    published_date = get_date 'Publish date '
+    movie = Movie.new(silent: is_silent, published_date: published_date)
+    add_association movie
+    @movies << movie
+  end
 
   def add_music_album
     publish_date = get_date 'publish date'
