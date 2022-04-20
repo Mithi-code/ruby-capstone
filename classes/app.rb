@@ -30,7 +30,9 @@ class App
 
   def list_music_albums; end
 
-  def list_movies; end
+  def list_movies
+    list_items @movies
+  end
 
   def list_genres; end
 
