@@ -4,6 +4,7 @@ require_relative 'source'
 require_relative 'label'
 require_relative 'author'
 require_relative 'movie'
+require_relative 'book'
 module Associations
   def add_associate(associate, list, item)
     associate.add_item item
