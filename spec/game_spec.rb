@@ -30,7 +30,7 @@ describe Game do
       expect(is_archived).to eq true
     end
 
-    it 'should not move game to archive if the game was last played more than 2 years ago' do
+    it 'should not move game to archive if the game was last played within 2 years ago' do
       last_played_year = DateTime.now.year.to_i - 2
       game = create_a_game(last_played_year, @publish_year)
       game.move_to_archive

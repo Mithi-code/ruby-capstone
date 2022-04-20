@@ -56,10 +56,11 @@ end
 # rubocop:enable Metrics/MethodLength
 def main
   choice = nil
+  app = App.new
   until choice == '13'
     choice = choose
     puts "You choose #{choice}"
-    case_statement choice
+    case_statement(choice, app)
   end
 end
 
