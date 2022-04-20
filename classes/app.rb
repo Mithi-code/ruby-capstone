@@ -38,8 +38,8 @@ class App
 
   def list_authors
     @authors.each_with_index do |author, i|
-      print "#{i + 1}. #{author.first_name} #{author.last_name}, "
-      author.items.each_with_index { |item, _i| puts "authored #{item.label.title}" }
+      puts "#{i + 1}. #{author.first_name} #{author.last_name}"
+      
     end
   end
 
@@ -55,7 +55,7 @@ class App
 
   def list_sources
     @sources.each_with_index do |source, i|
-      print "#{i + 1}: #{source.name}. "
+      puts "#{i + 1}: #{source.name}. "
     end
   end
 

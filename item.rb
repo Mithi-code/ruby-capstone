@@ -3,7 +3,7 @@ require 'json'
 
 class Item
   attr_accessor :genre, :source, :author, :label
-  attr_reader :archived, :id
+  attr_reader :archived, :id, :publish_date
 
   def initialize(id, publish_date, archived: false)
     @id = id
@@ -32,7 +32,7 @@ class Item
   end
 
   def self.from_json(json)
-    Item.new(json['id'], json['pubish_date'], archived: json['archived'])
+    Item.new(json['id'], json['publish_date'], archived: json['archived'])
   end
 
   private
