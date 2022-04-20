@@ -1,5 +1,6 @@
 class Source
   attr_accessor :name
+  attr_reader :items
 
   def initialize(name:, id: rand(1000))
     @id = id
@@ -9,6 +10,6 @@ class Source
 
   def add_item(item)
     @items << item
-    item.add_genre self
+    item.add_source self
   end
 end
