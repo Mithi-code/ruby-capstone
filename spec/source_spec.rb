@@ -6,7 +6,7 @@ describe Source do
     item = double('item')
     allow(item).to receive(:add_source)
     source.add_item item
-    
+
     expect(source.items.count).to eq 1
   end
 end
