@@ -1,3 +1,4 @@
+require 'json'
 class Label
   attr_accessor :title, :color
 
@@ -6,6 +7,20 @@ class Label
     @title = title
     @color = color
     @items = []
+  end
+
+  def to_json(*_args)
+    JSON.generate(
+      {
+        title: @title,
+        color: @color,
+        id: @id
+      }
+    )
+  end
+
+  def self.from_json(json)
+    Source.new(json['title'], json['color'], json['id'])
   end
 
   def add_item(item)

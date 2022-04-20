@@ -1,4 +1,5 @@
 require_relative '../item'
+require 'json'
 
 class Genre
   attr_accessor :name
@@ -8,6 +9,19 @@ class Genre
     @name = name
     @id = id
     @items = []
+  end
+
+  def to_json(*_args)
+    JSON.generate(
+      {
+        name: @name,
+        id: @id
+      }
+    )
+  end
+
+  def self.from_json(json)
+    Source.new(json['name'], json['id'])
   end
 
   def add_item(item)

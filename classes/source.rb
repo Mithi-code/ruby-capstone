@@ -1,3 +1,4 @@
+require 'json'
 class Source
   attr_accessor :name
 
@@ -5,6 +6,20 @@ class Source
     @id = id
     @name = name
     @items = []
+  end
+
+  def to_json(*_args)
+    JSON.generate(
+      {
+        name: @name,
+        id: @id
+
+      }
+    )
+  end
+
+  def self.from_json(json)
+    Source.new(json['name'], json['id'])
   end
 
   def add_item(item)

@@ -1,4 +1,5 @@
 require 'date'
+require 'json'
 
 class Item
   attr_accessor :genre, :source, :author, :label
@@ -28,6 +29,10 @@ class Item
 
   def move_to_archive()
     @archived = true if can_be_archived?
+  end
+
+  def self.from_json(json)
+    Item.new(json['id'], json['pubish_date'], archived: json['archived'])
   end
 
   private
