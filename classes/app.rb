@@ -1,5 +1,7 @@
 require_relative './app_helpers'
 require_relative 'game'
+require_relative 'genre'
+require_relative 'source'
 require 'date'
 class App
   include AppHelpers
@@ -54,8 +56,22 @@ class App
 
   private
 
+  def add_source
+    puts 'Lets add the Source'
+    print 'Source name: '
+    name = gets.chomp
+    Source.new name
+  end
+
+  def add_genre
+    puts 'Lets add the Genre'
+    print 'Genre name: '
+    name = gets.chomp
+    Genre.new name
+  end
+
   def add_author
-    puts 'Add the Author'
+    puts "Let's add the Author"
     print 'First name: '
     first_name = gets.chomp
     print 'Last name: '
