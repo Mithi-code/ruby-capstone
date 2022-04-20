@@ -2,6 +2,7 @@ require 'json'
 require_relative './associate'
 class Source
   attr_accessor :name
+  attr_reader :items
 
   include Associate
 
@@ -30,6 +31,6 @@ class Source
 
   def add_item(item)
     @items << item
-    item.add_genre self
+    item.add_source self
   end
 end

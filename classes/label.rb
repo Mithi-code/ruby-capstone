@@ -2,6 +2,7 @@ require 'json'
 require_relative './associate'
 class Label
   attr_accessor :title, :color
+  attr_reader :items
 
   include Associate
   def initialize(title:, color:, id: rand(1000))

@@ -44,7 +44,7 @@ def case_statement(choice, app)
   when '9'
     app.add_book
   when '10'
-    app.movie
+    app.add_movie
   when '11'
     app.add_music_album
 
