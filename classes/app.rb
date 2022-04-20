@@ -15,7 +15,7 @@ class App
     @sources = []
   end
 
-  def list_books; 
+  def list_books
     list_items @books
   end
 
