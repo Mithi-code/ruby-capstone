@@ -32,7 +32,10 @@ class App
 
   def list_movies; end
 
-  def list_genres; end
+  def list_genres
+    @gemers.each_with_index do |genres, i|
+      print "#{i + 1": #{genre.name}"
+  end
 
   def list_labels; end
 
@@ -42,7 +45,16 @@ class App
 
   def add_movie; end
 
-  def add_music_album; end
+  def add_music_album; 
+    publish_date = get_date 'publish date'
+    on_spotify = yes_or_no 'Is it on spotify'
+    music = MusicAlbum.new(
+      publish_date = publish_date,
+      on_spotify = on_spotify
+    )
+    add_associate music
+    @musics << music
+  end
 
   def add_game
     is_multiplayer = yes_or_no 'Is it a multiplayer game'
