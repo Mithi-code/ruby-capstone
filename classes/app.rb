@@ -38,7 +38,11 @@ class App
 
   def list_labels; end
 
-  def list_sources; end
+  def list_sources
+    @sources.each_with_index do |source, i|
+      print "#{i + 1}: #{source.name}. "
+    end
+  end
 
   def add_book; end
 
