@@ -4,8 +4,8 @@ require 'json'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(multiplayer:, last_played_at:, published_date:, id: rand(1000))
-    super(id, published_date)
+  def initialize(multiplayer:, last_played_at:, publish_date:, id: rand(1000))
+    super(id, publish_date)
     @multiplayer = multiplayer
     @last_played_at = last_played_at
   end
@@ -29,7 +29,7 @@ class Game < Item
     game = Game.new(
       multiplayer: json['multiplayer'],
       last_played_at: DateTime.parse(json['last_played_at']),
-      published_date: DateTime.parse(json['publish_date']),
+      publish_date: DateTime.parse(json['publish_date']),
       id: json['id']
     )
     game.add_author Author.from_json(json['author'])

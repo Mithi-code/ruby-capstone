@@ -19,11 +19,15 @@ class App
   def load_data
     load_list(@games, 'games', Game)
     load_list(@authors, 'authors', Author)
+    load_list(@movies, 'movies', Movie)
+    load_list(@sources, 'sources', Source)
   end
 
   def preserve_data
     preserve_list(@games, 'games')
     preserve_list(@authors, 'authors')
+    preserve_list(@movies, 'movies')
+    preserve_list(@sources, 'sources')
   end
 
   def list_books; end
@@ -59,8 +63,8 @@ class App
 
   def add_movie
     is_silent = yes_or_no 'Is it a silent movie'
-    published_date = get_date 'Publish date '
-    movie = Movie.new(silent: is_silent, published_date: published_date)
+    publish_date = get_date 'Publish date '
+    movie = Movie.new(silent: is_silent, publish_date: publish_date)
     add_association movie
     @movies << movie
   end
@@ -69,11 +73,11 @@ class App
 
   def add_game
     is_multiplayer = yes_or_no 'Is it a multiplayer game'
-    published_date = get_date 'Publish date '
+    publish_date = get_date 'Publish date '
     last_played_at = get_date 'Last_played_date'
     game = Game.new(
       multiplayer: is_multiplayer,
-      published_date: published_date,
+      publish_date: publish_date,
       last_played_at: last_played_at
     )
     add_association game
