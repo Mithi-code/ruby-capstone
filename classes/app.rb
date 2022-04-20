@@ -40,7 +40,13 @@ class App
 
   def add_book; end
 
-  def add_movie; end
+  def add_movie
+    is_silent = yes_or_no 'Is it a silent movie'
+    published_date = get_date 'Publish date '
+    movie = Movie.new(silent:is_silent, published_date: published_date)
+    add_association movie
+    @movies << movie
+  end
 
   def add_music_album; end
 
