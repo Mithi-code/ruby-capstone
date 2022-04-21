@@ -40,7 +40,7 @@ class App
 
   def list_labels
     @labels.each_with_index do |label, i|
-      print "#{i + 1}: #{label.name}. "
+      print "#{i + 1}: #{label.title}. "
     end
   end
 
