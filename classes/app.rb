@@ -15,7 +15,9 @@ class App
     @sources = []
   end
 
-  def list_books; end
+  def list_books
+    list_items @books
+  end
 
   def list_games
     list_items @games
@@ -36,7 +38,11 @@ class App
 
   def list_genres; end
 
-  def list_labels; end
+  def list_labels
+    @labels.each_with_index do |label, i|
+      print "#{i + 1}: #{label.title}. "
+    end
+  end
 
   def list_sources
     @sources.each_with_index do |source, i|
@@ -44,7 +50,13 @@ class App
     end
   end
 
-  def add_book; end
+  def add_book
+    is_cover_state = yes_or_no 'Is it a bad book'
+    publish_date = get_date 'Publish date '
+    book = Book.new(cover_state: is_cover_state, publish_date: publish_date, publisher: '')
+    add_association book
+    @books << book
+  end
 
   def add_movie
     is_silent = yes_or_no 'Is it a silent movie'
