@@ -21,6 +21,8 @@ class App
     load_list(@authors, 'authors', Author)
     load_list(@movies, 'movies', Movie)
     load_list(@sources, 'sources', Source)
+    load_list(@labels, 'labels', Label)
+    load_list(@books, 'books', Book)
   end
 
   def preserve_data
@@ -28,6 +30,8 @@ class App
     preserve_list(@authors, 'authors')
     preserve_list(@movies, 'movies')
     preserve_list(@sources, 'sources')
+    preserve_list(@labels, 'labels')
+    preserve_list(@books, 'books')
   end
 
   def list_books
