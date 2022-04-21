@@ -1,5 +1,5 @@
 CREATE DATABASE catalog_of_things;
-CREATE TABLE authors(
+CREATE TABLE author(
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         first_name TEXT,
         last_name TEXT
