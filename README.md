@@ -18,9 +18,13 @@ To get a local copy up and running follow these steps.
 
 2. Go to project directory `cd ruby-capstone`
 
-3. Install project requirements `bundle install`
+3. Run the project using `ruby main.rb` in terminal
 
-4. Run the project using `rubocop` in terminal
+> for running the tests:
+
+1. Install project requirements `bundle install`
+
+2. Run the test using `rubocop` in terminal
 
 ## Authors
 
