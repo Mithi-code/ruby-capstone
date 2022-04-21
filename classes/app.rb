@@ -44,13 +44,19 @@ class App
     end
   end
 
-  def list_music_albums; end
+  def list_music_albums
+    list_items @music_album
+  end
 
   def list_movies
     list_items @movies
   end
 
-  def list_genres; end
+  def list_genres
+    @genres.each_with_index do |genre, i|
+      puts "#{i + 1}: #{genre.name}"
+    end
+  end
 
   def list_labels
     @labels.each_with_index do |label, i|
@@ -80,7 +86,19 @@ class App
     @movies << movie
   end
 
-  def add_music_album; end
+  def add_music_album
+    publish_date = get_date 'publish date'
+    on_spotify = yes_or_no 'Is it on spotify'
+    print 'music album name: '
+    name = gets.chomp
+    music = MusicAlbum.new(
+      publish_date: publish_date,
+      on_spotify: on_spotify,
+      name: name
+    )
+    add_association music
+    @music_album << music
+  end
 
   def add_game
     is_multiplayer = yes_or_no 'Is it a multiplayer game'

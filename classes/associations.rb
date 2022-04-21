@@ -3,6 +3,7 @@ require_relative 'genre'
 require_relative 'source'
 require_relative 'label'
 require_relative 'author'
+require_relative 'music_album'
 require_relative 'movie'
 require_relative 'book'
 module Associations
