@@ -6,7 +6,7 @@ CREATE TABLE author(
 );
 CREATE TABLE source(
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        'name' TEXT
+        "name" TEXT
 );
 CREATE TABLE label(
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -15,7 +15,7 @@ CREATE TABLE label(
 );
 CREATE TABLE genre(
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        'name' TEXT
+        "name" TEXT
 );
 
 CREATE TABLE game(
@@ -66,7 +66,7 @@ CREATE TABLE book(
 
 CREATE TABLE music(
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-        'name' TEXT,
+        "name" TEXT,
         on_spotify BOOLEAN,
         publish_date DATE,
         archived BOOLEAN,
