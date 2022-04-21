@@ -1,12 +1,17 @@
 # Catalog of my things
 
-  In this project, you will create a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games. The data will be stored in JSON files but you will also prepare a database with tables structure analogical to your program's class structure.
+In this project, you will create a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games. The data will be stored in JSON files but you will also prepare a database with tables structure analogical to your program's class structure.
+
+## Project documentation
+
+you can watch the video [here](https://drive.google.com/file/d/1DtfheqXgkn7JQ3TeJuPb5uf5UXI5jrs3/view)
 
 ## Getting Started
 
-  To get a local copy up and running follow these steps.
+To get a local copy up and running follow these steps.
 
 1. Clone the repo
+
    ```
    git@github.com:Mithi-code/ruby-capstone.git
    ```
@@ -15,7 +20,7 @@
 
 3. Install project requirements `bundle install`
 
-3. Run the project using `rubocop` in terminal
+4. Run the project using `rubocop` in terminal
 
 ## Authors
 
@@ -43,7 +48,6 @@
 - Twitter: [Twitter](https://twitter.com/LazyMithlesh)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mithicode/)
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -62,4 +66,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
