@@ -23,7 +23,11 @@ class App
     load_list(@sources, 'sources', Source)
     load_list(@labels, 'labels', Label)
     load_list(@books, 'books', Book)
+    load_list(@music_album, 'music', MusicAlbum)
+    load_list(@genres, 'genre', Genre)
   end
+
+
 
   def preserve_data
     preserve_list(@games, 'games')
@@ -32,6 +36,8 @@ class App
     preserve_list(@sources, 'sources')
     preserve_list(@labels, 'labels')
     preserve_list(@books, 'books')
+    preserve_list(@genres, 'genre')
+    preserve_list(@music_album, 'music')
   end
 
   def list_books
