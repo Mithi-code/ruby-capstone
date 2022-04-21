@@ -27,8 +27,6 @@ class App
     load_list(@genres, 'genre', Genre)
   end
 
-
-
   def preserve_data
     preserve_list(@games, 'games')
     preserve_list(@authors, 'authors')
